@@ -35,7 +35,7 @@ AutoHtml.add_filter(:youtube).with(:width => 420, :height => 315, :frameborder =
     params << "rel=0" if hide_related
 
     if options[:user_params] && $5
-      user_params = Hash[$5.split(/[\?\&]/).reject(&:blank?).map{|s| s.split('=')}]
+      user_params = Hash[$5.split(/[\?\&\#]/).reject(&:blank?).map{|s| s.split('=')}]
       start_time_param = start_time.call(user_params)
       end_time_param = user_params['end']
       params << "start=#{start_time_param}" if start_time_param
